@@ -6,7 +6,8 @@ class HeaderImg extends Component {
     render(){
         return(
             <div className="headerImg"
-            style={{background:`url(${this.props.imgSrc})no-repeat`
+            style={{
+                background:`url(${this.props.imgSrc})no-repeat`
             }}
             >
                 <div className="headerImg--overlay">

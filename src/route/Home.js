@@ -24,7 +24,7 @@ class Home extends Component{
             <div>
                 <HeaderImg
                 title ='fast and furious'
-                overview = 'lorem ipsum'
+                overview = 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum '
                 imgSrc = {`./images/Fast_large.jpg`}
 
                 />
