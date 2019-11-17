@@ -1,25 +1,20 @@
 import React, { Component } from "react";
+import orderSup from "./Hoc";
 
 class Text2 extends Component {
-  state = {
-    value: ""
-  }
-  handleChange = e => {
-    this.setState({
-      value: e.target.value
-    })
-  }
+  
   render() {
+    const {state, handleChange, placeholder} = this.props
     return (
       <>
         <input
-          value={this.state.value}
-          onChange={this.handleChange}
-          placeholder={this.props.placeholder}
+          value={state.value}
+          onChange={handleChange}
+          placeholder={placeholder}
         />
       </>
     );
   }
 }
 
-export default Text2;
+export default orderSup(Text2);

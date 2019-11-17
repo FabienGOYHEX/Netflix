@@ -8,8 +8,8 @@ class App extends Component {
   render(){
      return (
     <div className="App">
-      <Text1 placeholdr ="champ1"/>
-       <Text2 placeholdr ="champ2"/>
+      <Text1 placeholder ="champ un "/>
+       <Text2 placeholder ="champ deux"/>
     </div>
   );
 }
