@@ -1,5 +1,7 @@
 import React, {Component} from "react"
 import FontAwesome from 'react-fontawesome'
+import '../css/Poster.css'
+
 
 class Poster extends Component{
     render(){
@@ -9,6 +11,7 @@ class Poster extends Component{
                 {this.props.hover ?
                 (
                     <div className="poster--overlay">
+                        <h3 poster--overlay__text> Liste de souhaits</h3>
                             {this.props.wished ?
                             (
                                 <FontAwesome className='poster--icon' name='heart' size='3x'/>

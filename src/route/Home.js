@@ -1,17 +1,39 @@
 import React, {Component} from "react"
 
-import {HeaderImg, SearchBar} from '../component'
+import {HeaderImg, SearchBar, PosterList} from '../component'
 
-// const movies = [
-//   {
-//     backdrop_path: "/n6bUvigpRFqSwmPp1m2YADdbRBc.jpg",
-//     id: 475557,
-//     overview:
-//       "Dans les annÈes 1980, ‡ Gotham City, Arthur Fleck, un humoriste de stand-up ratÈ, bascule dans la folie et devient le Joker.",
-//     poster_path: "/tWjJ3ILjsbTwKgXxEv48QAbYZ19.jpg",
-//     title: "Joker"
-//   }
-// ];
+ const movies = [
+  {
+    backdrop_path: "./images/Fast_large.jpg",
+    id: 475557,
+    overview:
+      "Dans les annÈes 1980, ‡ Gotham City, Arthur Fleck, un humoriste de stand-up ratÈ, bascule dans la folie et devient le Joker.",
+    poster_path: "./images/Fast_large.jpg",
+    title: "Joker"
+  },
+   {
+    backdrop_path: "./images/Fast_large.jpg",
+    id: 475557,
+    overview:
+      "Dans les annÈes 1980, ‡ Gotham City, Arthur Fleck, un humoriste de stand-up ratÈ, bascule dans la folie et devient le Joker.",
+    poster_path: "./images/Fast_large.jpg",
+    title: "Joker"
+  },{
+    backdrop_path: "./images/Fast_large.jpg",
+    id: 475557,
+    overview:
+      "Dans les annÈes 1980, ‡ Gotham City, Arthur Fleck, un humoriste de stand-up ratÈ, bascule dans la folie et devient le Joker.",
+    poster_path: "./images/Fast_large.jpg",
+    title: "Joker"
+  },{
+    backdrop_path: "./images/Fast_large.jpg",
+    id: 475557,
+    overview:
+      "Dans les annÈes 1980, ‡ Gotham City, Arthur Fleck, un humoriste de stand-up ratÈ, bascule dans la folie et devient le Joker.",
+    poster_path: "./images/Fast_large.jpg",
+    title: "Joker"
+  }
+];
 
 
 
@@ -27,6 +49,7 @@ class Home extends Component{
 
                 />
                 <SearchBar/>
+                <PosterList movies={movies}/>
             </div>
         )
     }
