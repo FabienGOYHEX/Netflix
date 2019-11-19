@@ -5,6 +5,7 @@ import '../css/LoadButton.css'
 
 
 
+
 class LoadButton extends Component {
     render(){
         return(
@@ -15,7 +16,7 @@ class LoadButton extends Component {
                         />
                     ):
                     (
-                        <div className="loadButton">
+                        <div onClick={this.props.onButtonClick} className="loadButton">
                             <h3 className="loadButton--text"> Voir Plus</h3>
                         </div>
                     )}

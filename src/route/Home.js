@@ -19,7 +19,7 @@ class Home extends Component{
                 />
                 <SearchBar onSearchClick={this.props.onSearchClick}/>
                 <PosterList movies={movies}/>
-                <LoadButton loading ={loading}/>
+                <LoadButton onButtonClick={this.props.onButtonClick} loading ={loading}/>
             </div>
         )
     }

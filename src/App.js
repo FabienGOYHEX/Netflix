@@ -53,13 +53,20 @@ class App extends Component {
 console.log(' handleSearch', value);
 
   }
+  loadMore = () => {
+        //start request in api here
+        console.log('loadMore');
+        
+    }
   render(){
      return (
     <div className="App">
       <Header badge={this.state.badge}/>
       <Home
       {...this.state}
-      onSearchClick={this.handleSearch}/>
+      onSearchClick={this.handleSearch}
+      onButtonClick={this.loadMore}
+      />
     
     </div>
   );
