@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
 
-import {Home} from '../src/route/Home'
-import {Header} from './component'
-import {API_URL, API_KEY} from './config'
+import { Home } from '../src/route/Home'
+import { Header } from './component'
+import { API_URL, API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE } from './config'
 
 import axios from "axios"
 
@@ -11,38 +11,7 @@ import axios from "axios"
 class App extends Component {
   state={
     loading:false,
-    movies : [
-  {
-    backdrop_path: "./images/Fast_large.jpg",
-    id: 475557,
-    overview:
-      "Dans les annÈes 1980, ‡ Gotham City, Arthur Fleck, un humoriste de stand-up ratÈ, bascule dans la folie et devient le Joker.",
-    poster_path: "./images/Fast_large.jpg",
-    title: "Joker"
-  },
-   {
-    backdrop_path: "./images/Fast_large.jpg",
-    id: 475557,
-    overview:
-      "Dans les annÈes 1980, ‡ Gotham City, Arthur Fleck, un humoriste de stand-up ratÈ, bascule dans la folie et devient le Joker.",
-    poster_path: "./images/Fast_large.jpg",
-    title: "Joker"
-  },{
-    backdrop_path: "./images/Fast_large.jpg",
-    id: 475557,
-    overview:
-      "Dans les annÈes 1980, ‡ Gotham City, Arthur Fleck, un humoriste de stand-up ratÈ, bascule dans la folie et devient le Joker.",
-    poster_path: "./images/Fast_large.jpg",
-    title: "Joker"
-  },{
-    backdrop_path: "./images/Fast_large.jpg",
-    id: 475557,
-    overview:
-      "Dans les annÈes 1980, ‡ Gotham City, Arthur Fleck, un humoriste de stand-up ratÈ, bascule dans la folie et devient le Joker.",
-    poster_path: "./images/Fast_large.jpg",
-    title: "Joker"
-  }
-],
+    movies : [],
     badge : 0,
     image : './images/Fast_large.jpg',
     mTitle : 'Fast and Furious',
@@ -53,7 +22,17 @@ class App extends Component {
   }
   async componentDidMount(){
     try { 
-      this.loadMovies()
+     const {data :{results, page, total_pages}} = await this.loadMovies()
+     console.log('res',results);
+     this.setState({
+       movies: results,
+       loading: false,
+       activePage: page,
+       totalPages: total_pages,
+       image: `${IMAGE_BASE_URL}/${BACKDROP_SIZE}/${results[0].backdrop_path}`,
+       mTitle: results[0].title,
+       mDesc: results[0].overview
+     })
     } catch(e) {
       console.log('e',e)
     }
