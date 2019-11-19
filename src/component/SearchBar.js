@@ -10,6 +10,7 @@ import '../css/SearchBar.css'
                 this.setState({value: event.target.value})
      }
      render(){
+         const {value} = this.state
          return (
              <div className='searchBar--container'>
                 <div className='searchBar'>
@@ -17,10 +18,13 @@ import '../css/SearchBar.css'
                     className='searchBar--input'
                      type='text' 
                      placeholder='rechercher un film'
-                     value ={this.state.value}
+                     value ={value}
                      onChange={this.handleChange}
                      />
-                        <div className ='searchBar--submit'>
+                        <div 
+                        onClick={() => this.props.onSearchClick(value)}
+                        className ='searchBar--submit'
+                        >
                             <FontAwesome className="searchIcon" name="search"/>
                         </div>
                 </div>

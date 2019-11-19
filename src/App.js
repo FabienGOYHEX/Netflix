@@ -48,12 +48,18 @@ class App extends Component {
     totalPages:0,
     searchText:''
   }
+  handleSearch = (value) =>{
+// start reseach
+console.log(' handleSearch', value);
+
+  }
   render(){
      return (
     <div className="App">
       <Header badge={this.state.badge}/>
       <Home
-      {...this.state}/>
+      {...this.state}
+      onSearchClick={this.handleSearch}/>
     
     </div>
   );
