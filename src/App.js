@@ -3,6 +3,9 @@ import './App.css';
 
 import {Home} from '../src/route/Home'
 import {Header} from './component'
+import {API_URL, API_KEY} from './config'
+
+import axios from "axios"
 
 
 class App extends Component {
@@ -47,6 +50,18 @@ class App extends Component {
     activePage:0,
     totalPages:0,
     searchText:''
+  }
+  async componentDidMount(){
+    try { 
+      this.loadMovies()
+    } catch(e) {
+      console.log('e',e)
+    }
+  }
+  loadMovies = () =>{
+    const page = this.state.activePage + 1
+const url = `${API_URL}/movie/popular?api_key=${API_KEY}&page=${page}&langage=fr`
+  return axios.get(url)
   }
   handleSearch = (value) =>{
 // start reseach
