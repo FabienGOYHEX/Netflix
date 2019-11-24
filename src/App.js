@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
+import {BrowserRouter, Router, Route, Switch} from 'react-router-dom'
 
-import { Home } from '../src/route/Home'
-import { Header } from './component'
+import { Home, Details} from '../src/route/index'
+import { Header, Spinner } from './component'
 import { API_URL, API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE } from './config'
 
 import axios from "axios"
@@ -10,12 +11,12 @@ import axios from "axios"
 
 class App extends Component {
   state={
-    loading:false,
+    loading:true,
     movies : [],
     badge : 0,
-    image : './images/Fast_large.jpg',
-    mTitle : 'Fast and Furious',
-    mDesc : `Fast and Furious ou Rapides et dangereux au Québec est une série de films américains d'action dont le premier est sorti en 2001. Elle comprend neuf longs métrages (sortis) ainsi que deux courts métrages. Le premier film est basé sur un article intitulé Racer X, écrit par le journaliste Ken Li et publié dans Vibe, parlant de courses-poursuites et de différents vols dans les rues de New-York (le film se déroule cependant à Los Angeles).`,
+    image : null,
+    mTitle : '',
+    mDesc :  '',
     activePage:0,
     totalPages:0,
     searchText:''
@@ -94,15 +95,25 @@ const {data :{results, page, total_pages}} = await this.loadMovies()
     }
   render(){
      return (
+       <BrowserRouter>
     <div className="App">
       <Header badge={this.state.badge}/>
-      <Home
-      {...this.state}
-      onSearchClick={this.handleSearch}
-      onButtonClick={this.loadMore}
-      />
-    
+      {!this.state.image ?(
+        <Spinner/>
+      ): (
+      <switch>
+        <Route path ="/" exact render={() =>(
+            <Home
+                {...this.state}
+                onSearchClick={this.handleSearch}
+                onButtonClick={this.loadMore}
+            />
+        )} />
+         <Route path ='/:id' exact component={Details} />
+      </switch>
+    )}
     </div>
+    </BrowserRouter>
   );
 }
 }
