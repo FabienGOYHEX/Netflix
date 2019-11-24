@@ -1,10 +1,9 @@
 import React from 'react'
 
-const NotFound = (props) =>{
-    return(
+const NotFound = (props) =>(
     <div >
-            <h1> Not Found </h1>
+            <h1 color={'black'}> Not Found </h1>
     </div>
     )
-}
+
 export {NotFound}
