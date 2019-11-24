@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import {BrowserRouter, Router, Route, Switch} from 'react-router-dom'
 
-import { Home, Details} from '../src/route/index'
+import { Home, Details, NotFound} from '../src/route/index'
 import { Header, Spinner } from './component'
 import { API_URL, API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE } from './config'
 
@@ -110,6 +110,7 @@ const {data :{results, page, total_pages}} = await this.loadMovies()
             />
         )} />
          <Route path ='/:id' exact component={Details} />
+         <Route component ={NotFound}/>
       </switch>
     )}
     </div>
