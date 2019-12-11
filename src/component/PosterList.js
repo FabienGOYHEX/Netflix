@@ -17,7 +17,8 @@ class PosterList extends Component{
                     wished={wish}
                     movie={movie}
                     mTitle={movie.title}
-                    mDesc={movie.overview}/>
+                    mDesc={movie.overview}
+                    id={movie.id}/>
                 )
             })
         }

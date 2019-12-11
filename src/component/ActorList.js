@@ -1,16 +1,15 @@
 import React from 'react';
-
 import { Actor } from './index';
 import '../css/ActorList.css'
 
-//import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
+import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
 import '../css/ActorList.css';
 
 const ActorList = props => {
     const renderActor = () => {
         return props.actors.map((actor, i) => {
-           // const imgSrc = actor.profile_path ? `${IMAGE_BASE_URL}/${POSTER_SIZE}/${actor.profile_path}` : './images/no_image.jpg';
-            const imgSrc ='./images/Fast_small.jpg'
+           const imgSrc = actor.profile_path ? `${IMAGE_BASE_URL}/${POSTER_SIZE}/${actor.profile_path}` : './images/no_image.jpg';
+        
             return (
                 <Actor 
                     key={i}

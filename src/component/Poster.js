@@ -1,5 +1,7 @@
 import React, {Component} from "react"
 import FontAwesome from 'react-fontawesome'
+import {Link} from "react-router-dom"
+
 import '../css/Poster.css'
 
 
@@ -33,7 +35,9 @@ console.log('add');
             onMouseLeave={this.hideOverlay}
             className='poster'
             >
-                <img className='poster--img' src={this.props.imgSrc} alt ="Poster"></img>
+                <Link to={{pathname:`/${this.props.id}`}}>
+                <img className='poster--img' src={this.props.imgSrc} alt ="Poster"/>
+                </Link>
                 {this.state.hover ?
                 (
                     <div className='poster--overlay'>
