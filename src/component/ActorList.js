@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Actor } from './index';
+import '../css/ActorList.css'
 
 //import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
 import '../css/ActorList.css';
