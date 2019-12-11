@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import {BrowserRouter, Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter, Route} from 'react-router-dom'
 
 import { Home, Details, NotFound} from '../src/route/index'
 import { Header, Spinner } from './component'
