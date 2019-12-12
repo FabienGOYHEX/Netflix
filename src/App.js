@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import './App.css';
 import {BrowserRouter, Route} from 'react-router-dom'
+import {Provider} from 'react-redux'
 
 import { Home, Details, NotFound} from '../src/route/index'
 import { Header, Spinner } from './component'
 import { API_URL, API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE } from './config'
+import store from './store'
 
 import axios from "axios"
 
@@ -95,6 +97,7 @@ const {data :{results, page, total_pages}} = await this.loadMovies()
     }
   render(){
      return (
+       <Provider store= {store}>
        <BrowserRouter>
     <div className="App">
       <Header badge={this.state.badge}/>
@@ -115,6 +118,7 @@ const {data :{results, page, total_pages}} = await this.loadMovies()
     )}
     </div>
     </BrowserRouter>
+    </Provider>
   );
 }
 }

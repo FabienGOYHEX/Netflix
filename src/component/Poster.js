@@ -1,12 +1,13 @@
 import React, {Component} from "react"
 import FontAwesome from 'react-fontawesome'
 import {Link} from "react-router-dom"
+import {connect} from 'react-redux'
 
 import '../css/Poster.css'
 
+import {addMovie, removeMovie} from '../actions/movie'
 
-
-class Poster extends Component{
+class PosterComponent extends Component{
     state = {
         hover: false,
     }
@@ -21,11 +22,11 @@ class Poster extends Component{
             this.setState({hover: false})
     }
     remove = () =>{
-console.log('remove');
+            this.props.removeM(this.props.id)
 
     }
     add = () =>{
-console.log('add');
+            this.props.addM(this.props.movie)
 
     }
     render(){
@@ -55,4 +56,12 @@ console.log('add');
         )
     }
 }
+const mapDispatchToProps = (dispatch) => {
+    return{
+        addM : movie =>{dispatch(addMovie(movie))},
+        removeM : movieId =>{dispatch(removeMovie(movieId))}
+
+    }
+}
+const Poster = connect(null, mapDispatchToProps)(PosterComponent)
 export {Poster}

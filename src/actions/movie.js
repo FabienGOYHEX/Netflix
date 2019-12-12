@@ -1,7 +1,7 @@
 import { ADD_MOVIE, REMOVE_MOVIE, GET_MOVIES, GET_NUMBER } from "./index"
 
-export const addMovie = () => {
-    let movies = JSON.parse(localStorage.getItem("movie"))
+export const addMovie = (movie) => {
+    let movies = JSON.parse(localStorage.getItem("movies"))
     if(movies){
         movies =[...movies, movie]
     } else {
