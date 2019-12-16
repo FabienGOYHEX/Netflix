@@ -30,7 +30,7 @@ class Details extends Component {
     async componentDidMount(){
         try{
             const movieId = this.props.match.params.id;
-            const url = `${API_URL}/movie/${movieId}?api_key=${API_KEY}&language=fr`;
+             const url = `${API_URL}/movie/${movieId}?api_key=${API_KEY}&language=fr`;
            const {data : {
                             revenue,
                             runtime, 

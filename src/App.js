@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
-import {BrowserRouter, Route} from 'react-router-dom'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import {Provider} from 'react-redux'
 
-import { Home, Details, NotFound} from '../src/route/index'
+import { Home, Details, NotFound, MoviePlayer} from '../src/route/index'
 import { Header, Spinner } from './component'
 import { API_URL, API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE } from './config'
 import store from './store'
@@ -104,7 +104,7 @@ const {data :{results, page, total_pages}} = await this.loadMovies()
       {!this.state.image ?(
         <Spinner/>
       ): (
-      <switch>
+      <Switch>
         <Route path ="/" exact render={() =>(
             <Home
                 {...this.state}
@@ -112,9 +112,11 @@ const {data :{results, page, total_pages}} = await this.loadMovies()
                 onButtonClick={this.loadMore}
             />
         )} />
+        <Route path ='/player' exact component={MoviePlayer} />
+        <Route path ='/player:id' exact component={MoviePlayer} />
          <Route path ='/:id' exact component={Details} />
          <Route component ={NotFound}/>
-      </switch>
+      </Switch>
     )}
     </div>
     </BrowserRouter>
